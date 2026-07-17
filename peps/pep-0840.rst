@@ -177,6 +177,23 @@ be unused. It would nonetheless be a somewhat unusual case-- a nested
 class definition that has a local variable that shadows a local
 variable in an enclosing scope.
 
+Notes
+=====
+
+The notes need to be fleshed out before merging these changes back to main.
+
+Jelle Zijlstra documented this behavior while working on PEP 695.
+https://jellezijlstra.github.io/talks/pycon2024-pep695.pdf
+"Class scopes are weird."
+
+Note that metaclasses make class namespaces even weird. The metaclass can
+update the class dict before any of the code in the body runs. As a result
+you can't do meaningful static analysis of code using metaclasses.
+
+Decide if annotations deserve comment here.
+
+Analyze some code and find out if this occurs in practice. Report on the
+results here.
 
 Copyright
 =========
